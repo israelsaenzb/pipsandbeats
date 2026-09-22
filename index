@@ -1,0 +1,494 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pips & Beats</title>
+
+    <meta
+        name="description"
+        content="Pips & Beats — Trade, Eat, Sleep, Repeat."
+    >
+
+    <meta name="theme-color" content="#000000">
+
+    <style>
+
+        /* ==============================
+           CONFIGURACIÓN GENERAL
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            width: 100%;
+            min-height: 100%;
+            background: #000;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #111 0%,
+                    #050505 45%,
+                    #000 80%
+                );
+
+            color: #fff;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow-x: hidden;
+        }
+
+
+        /* ==============================
+           CONTENEDOR PRINCIPAL
+        ============================== */
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            padding: 30px 20px 45px;
+        }
+
+
+        /* ==============================
+           IMAGEN PRINCIPAL
+        ============================== */
+
+        .hero-image {
+            width: 100%;
+            max-width: 850px;
+            height: auto;
+
+            display: block;
+
+            border-radius: 10px;
+
+            user-select: none;
+            -webkit-user-drag: none;
+
+            animation: fadeIn 1s ease-out;
+        }
+
+
+        /* ==============================
+           FRASE
+        ============================== */
+
+        .tagline {
+            margin-top: 24px;
+
+            font-size: 15px;
+            font-weight: 700;
+
+            letter-spacing: 5px;
+
+            text-align: center;
+
+            color: rgba(255,255,255,0.82);
+
+            text-transform: uppercase;
+
+            animation: fadeUp 1s ease-out 0.3s both;
+        }
+
+
+        /* ==============================
+           REDES SOCIALES
+        ============================== */
+
+        .socials {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 30px;
+
+            margin-top: 25px;
+
+            animation: fadeUp 1s ease-out 0.5s both;
+        }
+
+
+        /* ==============================
+           BOTÓN SOCIAL
+        ============================== */
+
+        .social-button {
+
+            width: 72px;
+            height: 72px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.02);
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            text-decoration: none;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        /* ==============================
+           LOGOS
+        ============================== */
+
+        .social-button img {
+
+            width: 45px;
+            height: 45px;
+
+            object-fit: contain;
+
+            display: block;
+
+            transition:
+                transform 0.25s ease,
+                filter 0.25s ease;
+        }
+
+
+        /* ==============================
+           EFECTO HOVER
+        ============================== */
+
+        .social-button:hover {
+
+            transform:
+                translateY(-8px)
+                scale(1.08);
+
+            background: rgba(255,255,255,0.05);
+
+            border-color:
+                rgba(255,255,255,0.35);
+
+            box-shadow:
+                0 0 12px rgba(255,255,255,0.15),
+                0 0 30px rgba(255,255,255,0.08);
+        }
+
+        .social-button:hover img {
+
+            transform: scale(1.08);
+
+            filter:
+                drop-shadow(
+                    0 0 8px
+                    rgba(255,255,255,0.65)
+                );
+        }
+
+
+        /* ==============================
+           EFECTO AL PRESIONAR
+        ============================== */
+
+        .social-button:active {
+
+            animation:
+                bounce 0.4s ease;
+        }
+
+
+        @keyframes bounce {
+
+            0% {
+                transform: scale(1);
+            }
+
+            30% {
+                transform: scale(0.78);
+            }
+
+            55% {
+                transform: scale(1.15);
+            }
+
+            75% {
+                transform: scale(0.94);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        /* ==============================
+           ANIMACIONES DE ENTRADA
+        ============================== */
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+                transform: scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* ==============================
+           FOOTER DISCRETO
+        ============================== */
+
+        .footer {
+
+            margin-top: 30px;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            color:
+                rgba(255,255,255,0.35);
+
+            text-align: center;
+
+            animation:
+                fadeUp 1s ease-out 0.7s both;
+        }
+
+
+        /* ==============================
+           CELULARES
+        ============================== */
+
+        @media (max-width: 600px) {
+
+            .container {
+
+                padding:
+                    20px
+                    15px
+                    35px;
+            }
+
+            .hero-image {
+
+                width: 100%;
+
+                border-radius: 7px;
+            }
+
+            .tagline {
+
+                margin-top: 20px;
+
+                font-size: 11px;
+
+                letter-spacing: 3px;
+            }
+
+            .socials {
+
+                gap: 18px;
+
+                margin-top: 22px;
+            }
+
+            .social-button {
+
+                width: 62px;
+                height: 62px;
+            }
+
+            .social-button img {
+
+                width: 39px;
+                height: 39px;
+            }
+
+            .footer {
+
+                margin-top: 25px;
+
+                font-size: 9px;
+            }
+        }
+
+
+        /* ==============================
+           PANTALLAS MUY PEQUEÑAS
+        ============================== */
+
+        @media (max-width: 360px) {
+
+            .socials {
+                gap: 12px;
+            }
+
+            .social-button {
+                width: 58px;
+                height: 58px;
+            }
+
+            .social-button img {
+                width: 36px;
+                height: 36px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <main class="container">
+
+
+        <!-- =================================
+             IMAGEN PRINCIPAL
+        ================================== -->
+
+        <img
+            class="hero-image"
+            src="https://i.imgur.com/dLihNeB.png"
+            alt="Pips & Beats"
+        >
+
+
+        <!-- =================================
+             FRASE
+        ================================== -->
+
+        <div class="tagline">
+            TRADE • EAT • SLEEP • REPEAT
+        </div>
+
+
+        <!-- =================================
+             REDES SOCIALES
+        ================================== -->
+
+        <div class="socials">
+
+
+            <!-- DISCORD -->
+
+            <a
+                class="social-button"
+                href="https://discord.gg/efV5fuhxW"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Discord"
+            >
+
+                <img
+                    src="https://cdn.simpleicons.org/discord/ffffff"
+                    alt="Discord"
+                >
+
+            </a>
+
+
+            <!-- TIKTOK -->
+
+            <a
+                class="social-button"
+                href="https://www.tiktok.com/@pipsandbeats"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+            >
+
+                <img
+                    src="https://cdn.simpleicons.org/tiktok/ffffff"
+                    alt="TikTok"
+                >
+
+            </a>
+
+
+            <!-- KICK -->
+
+            <a
+                class="social-button"
+                href="https://kick.com/pipsandbeats"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Kick"
+            >
+
+                <img
+                    src="https://cdn.simpleicons.org/kick/ffffff"
+                    alt="Kick"
+                >
+
+            </a>
+
+
+        </div>
+
+
+        <!-- =================================
+             FOOTER
+        ================================== -->
+
+        <div class="footer">
+            PIPS &amp; BEATS
+        </div>
+
+
+    </main>
+
+</body>
+</html>
+```
