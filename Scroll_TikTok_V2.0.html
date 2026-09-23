@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrolling Text TikTok</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #FFD700 0%, #FFED4E 50%, #FFA500 100%);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .controls {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .controls h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .control-group input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .control-group input[type="number"] {
+            width: 100px;
+            padding: 10px;
+            font-size: 14px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .scroll-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .scroll-text {
+            display: inline-block;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 48px;
+            font-weight: bold;
+            color: #000000;
+            padding-left: 100%;
+            animation: scroll-left 30s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <h3>Configuración del Scroll</h3>
+        <div class="control-group">
+            <label for="textInput">Texto a mostrar:</label>
+            <input type="text" id="textInput" value="Trader con +9 años de experiencia | Bienvenido al live | Disfruta | Sé respetuoso | NO doy consejos de inversión | Invertir es bajo tu propio riesgo | Sígueme para no perderte los lives | L—V 7:00 AM CDMX |">
+        </div>
+        <div class="control-group">
+            <label for="speedInput">Velocidad (segundos):</label>
+            <input type="number" id="speedInput" value="30" min="5" max="120" step="1">
+        </div>
+    </div>
+
+    <div class="scroll-container">
+        <div class="scroll-text" id="scrollText">
+            Trader con +9 años de experiencia | Bienvenido al live | Disfruta | Sé respetuoso | NO doy consejos de inversión | Invertir es bajo tu propio riesgo | Sígueme para no perderte los lives | L—V 7:00 AM CDMX |
+        </div>
+    </div>
+
+    <script>
+        const textInput = document.getElementById('textInput');
+        const speedInput = document.getElementById('speedInput');
+        const scrollText = document.getElementById('scrollText');
+
+        // Actualizar texto en tiempo real
+        textInput.addEventListener('input', function() {
+            scrollText.textContent = this.value;
+        });
+
+        // Actualizar velocidad en tiempo real
+        speedInput.addEventListener('input', function() {
+            const speed = this.value + 's';
+            scrollText.style.animation = `scroll-left ${speed} linear infinite`;
+        });
+    </script>
+</body>
+</html>
